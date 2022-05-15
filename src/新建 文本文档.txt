@@ -1,0 +1,231 @@
+import org.w3c.dom.com.other.Node;
+
+public class SinglytestT {
+    public static void main(String[] args) {
+        SinglyString list = new SinglyString();
+        list.insert(姚明);
+        list.insert(科比);
+        list.insert(麦迪);
+        list.insert(詹姆斯);
+        list.insert(哈哈哈);
+        list.insert(姚明);
+        for (int i = 0; i  list.length(); i++) {
+            System.out.println(list.get(i));
+        }
+        System.out.println();
+        System.out.println(list.last().item);
+    }
+}
+
+class SinglyT {
+    private com.other.Node1 head;
+    private int N;
+
+    public com.other.Singly() {
+        this.head = new com.other.Node1();
+        this.N = 0;
+
+    }
+
+      清空链表
+    public void clear() {
+        head.next = null;
+        this.N = 0;
+    }
+
+        获取链表的长度
+    public int length() {
+        return N;
+    }
+
+        判断链表是否为空
+    public boolean isEmpty() {
+        return N == 0;
+    }
+
+        获取指定位置i处的元素
+    public Object get(int i) {
+        if (i  0  i  N) {
+            throw new NullPointerException();
+        }
+        通过循环，从头结点开始往后找，依次找1次，可以找到对应的元素
+        com.other.Node1 n = head;
+        if (n == null) {
+            throw new NullPointerException();
+        }
+        for (int index = 0; index  i; index++) {
+            n = n.next;
+        }
+        return n.item;
+    }
+
+    public boolean listEmpty() {
+        com.other.Node1 n = head;
+        if (n.next == null) { 通过判断头结点的下一结点地址是否为空，即可判断单链表是否为空
+            return true;
+        }
+        return false;
+    }
+
+        向链表中添加元素t
+    public void insert(T t) {
+        this.insert(N, t);
+        if (t == null) {
+            throw new NullPointerException();
+        }
+        com.other.Node1 n = head;
+        while (n.next != null) {
+            n = n.next;
+        }
+        n.next = n;
+        N++;
+    }
+
+        向指定位置i处，添加元素t
+    public void insert(int i, T t) {
+        if (t == null) {
+            throw new NullPointerException();
+        }
+        if (i  0  i  N) {
+            throw new NullPointerException();
+        }
+        com.other.Node1 pre = head;
+        com.other.Node1 newNode = new com.other.Node1(t, null);
+        if (i == 0) {
+            newNode.next = head;
+            head = newNode;
+        } else {
+            for (int j = 0; j  i - 1; j++) {
+                pre = pre.next;
+            }
+            newNode.next = pre.next;
+            pre.next = newNode;
+        }
+        N++;
+    }
+
+        删除指定位置i处的元素，并返回被删除的元素
+    public Object remove(int i) {
+        找到i位置的前一个节点
+        com.other.Node1 pre = head;
+        for (int index = 0; index = i - 1; i++) {
+            pre = pre.next;
+        }
+        要找到i位置的结点
+        com.other.Node1 curr = pre.next;
+        找到i位置的下一个结点
+        com.other.Node1 nextNode = curr.next;
+        前一个结点指向下一个结点
+        pre.next = nextNode;
+        元素个数-1
+        N--;
+        return curr.item;
+    }
+
+        查找元素t在链表中第一次出现的位置
+    public int indexof(T t) {
+        从头结点开始，依次找到每一个结点，取出item，和t比较，如果相同，就找到了
+        com.other.Node1 n = head;
+        for (int i = 0; n.next != null; i++) {
+            n = n.next;
+            if (n.item.equals(t)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+
+    @Override
+    public String toString() {
+        return com.other.Node1 + last().item + , + last().next;
+    }
+
+    public com.other.Node1 last() {
+        com.other.Node1 temp = new com.other.Node1(this.get(N-1),null);
+        com.other.Node1 temp = this.head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+    public com.other.Node1 prev(com.other.Node1 p) {
+        com.other.Node1 temp = this.head;
+        if (p.next == null) {
+            return null;
+        }
+        while (true) {
+            if (temp.next == p) {
+                break;
+            } else {
+                temp = temp.next;
+            }
+        }
+        return temp;
+    }
+}
+
+       com.other.Node1 n = head;
+        com.other.Node1 q = null;
+        if(p==nullp.next==null){
+            return null;
+        }
+      if(head.next==null){
+          return null;空链表
+      }
+      创建要给一个栈，将各个节点压入栈
+        StackNode1 stack = new Stack();
+        com.other.Node1 cur = head.next;
+        将链表的左右结点压入栈
+        while(cur!=null){
+            stack.push(cur);
+            cur = cur.next;cur后移，这样就可以压入下一个结点
+        }
+          while(stack.size()0){
+              if(stack.pop().equals(p)){
+                    q = p.next;
+              }
+              }
+          return q;
+
+
+
+/**
+     * @Author: hongxiaobin
+     * @Date: 2022/3/30 9:32
+     * @Description: 实现一元多项式的加法运算
+     * @Param: Polynomial, Polynomial
+     * @Return: Polynomial
+     */
+    public static Polynomial add(Polynomial p1, Polynomial p2) {
+        Polynomial result = new Polynomial();
+//        分别指向p1 p2的第一个元素
+        p1.current = p1.head.next;
+        p2.current = p2.head.next;
+        while (p1.current != null && p2.current != null) {
+//            指数相同即系数相加，指数不变
+            if (p1.current.getIndex() == p2.current.getIndex()) {
+                result.insert(new PolyNode(p1.current.getCoef() + p2.current.getCoef(), p1.current.getIndex()));
+                p1.current = p1.current.next;
+                p2.current = p2.current.next;
+//                p1指数小则直接添加到结果中,指针后移
+            } else if (p1.current.getIndex() < p2.current.getIndex()) {
+                result.insert(p1.current);
+                p1.current = p1.current.next;
+//                p2指数小则直接添加到结果中,指针后移
+            } else {
+                result.insert(p2.current);
+                p2.current = p2.current.next;
+            }
+        }
+        while (p1.current != null) {
+            result.insert(p1.current);
+            p1.current = p1.current.next;
+        }
+        while (p2.current != null) {
+            result.insert(p2.current);
+            p2.current = p2.current.next;
+        }
+        return result;
+    }
