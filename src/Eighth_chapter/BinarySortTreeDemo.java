@@ -47,6 +47,10 @@ public class BinarySortTreeDemo {
         System.out.println("中序遍历二叉排序树");
         binarySortTree.infixOrde();
         System.out.println();
+        binarySortTree.preOrder();
+        System.out.println();
+        binarySortTree.postOrder();
+
 //        删除叶子结点
         System.out.println("删除叶子结点 2");
         binarySortTree.delNode(10);
@@ -183,6 +187,20 @@ class BinarySortTree {
             System.out.println("当前二叉排序树为空，不能遍历");
         }
     }
+    public void preOrder() {
+        if (root != null) {
+            root.preOrder();
+        } else {
+            System.out.println("当前二叉排序树为空，不能遍历");
+        }
+    }
+    public void postOrder() {
+        if (root != null) {
+            root.postOrder();
+        } else {
+            System.out.println("当前二叉排序树为空，不能遍历");
+        }
+    }
 }
 
 /**
@@ -191,7 +209,7 @@ class BinarySortTree {
  * @Author: hongxiaobin
  * @Date: 2022 /5/9 21:34
  */
-class Node {
+class   Node {
     int value;
     Node left;
     Node right;
@@ -302,5 +320,23 @@ class Node {
         if (this.right != null) {
             this.right.infixOrder();
         }
+    }
+    public void preOrder() {
+        System.out.println(this);
+        if (this.left != null) {
+            this.left.preOrder();
+        }
+        if (this.right != null) {
+            this.right.preOrder();
+        }
+    }
+    public void postOrder() {
+        if (this.left != null) {
+            this.left.postOrder();
+        }
+        if (this.right != null) {
+            this.right.postOrder();
+        }
+        System.out.println(this);
     }
 }
