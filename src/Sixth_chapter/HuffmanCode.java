@@ -243,7 +243,7 @@ public class HuffmanCode {
     }
 
     /**
-     * 讲字符数组转为集合
+     * 将字符数组转为集合
      *
      * @Param: byte[] bytes
      * @Return: List<NodeCode>
