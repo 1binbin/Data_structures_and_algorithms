@@ -38,10 +38,11 @@ public class InsertSort {
             int insertVal = arr[i];
 //           待插入的索引
             int insertIndex = i - 1;
-//           从无序表的前一个元素开始找插入位置，在第一个比其小的后面插入（降序相反，从有序表第一个开始找）
+//           从无序表的前一个元素开始找插入位置，在第一个比其小的后面插入
 //           insertIndex >=0保证在给InsertVal找插入位置，不越界
 //           insertVal < arr[insertIndex] 保证待插入的数还没有找到适当的位置
 //           就需要将insertIndex前移
+//            降序：将insertVal < arr[insertIndex] 改为 insertVal > arr[insertIndex]
             while (insertIndex >= 0 && insertVal < arr[insertIndex]) {
                 arr[insertIndex + 1] = arr[insertIndex];
 //                前移
