@@ -44,7 +44,7 @@ public class InsertSort {
 //           就需要将insertIndex前移
             while (insertIndex >= 0 && insertVal < arr[insertIndex]) {
                 arr[insertIndex + 1] = arr[insertIndex];
-//                前移（降序为后移）
+//                前移
                 insertIndex--;
             }
 //            当退出while循环时，说明插入的位置找到，insertIndex + 1
