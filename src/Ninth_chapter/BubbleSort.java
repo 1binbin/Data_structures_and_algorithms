@@ -1,19 +1,17 @@
 package Ninth_chapter;
 
-import java.sql.Time;
 import java.util.Arrays;
-import java.util.Date;
 
-/**
+/** 冒泡排序
  * @Author hongxiaobin
  * @Time 2022/5/20-22:40
  */
 public class BubbleSort {
     public static void main(String[] args) {
-        int n = 20;
+        int n = 2000;
         int[] arr = new int[n];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int)(Math.random()*1000);
+            arr[i] = (int) (Math.random() * 1000);
         }
         /*
 //        冒泡排序的演变过程
@@ -55,11 +53,11 @@ public class BubbleSort {
         System.out.println("排序后");
         System.out.println(Arrays.toString(arr));
         long end = System.currentTimeMillis();
-        System.out.println("执行时间为 "+(end - start)+" ms");
+        System.out.println("执行时间为 " + (end - start) + " ms");
     }
 
     /**
-     * 冒牌排序
+     * 冒牌排序,升序
      * 时间复杂度O(n^2)
      *
      * @Param: int[] arr 待排序数组序列
