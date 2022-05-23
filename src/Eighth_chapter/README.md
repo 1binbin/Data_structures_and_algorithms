@@ -22,7 +22,12 @@
 ### 非递归方法
 - 详见src/Tenth_chapter/BinarySearch.java 中的 binarySearchNoRecurisve 方法
 ## 插值查找
-1. 插值查找类似于二分查找，不同的事插值查找每次从自适应mid处开始查找
-2. 将折半查找中的求mid索引的公式 ，low表示左边索引，high表示右边索引
+1. 适用于数字分布均匀的数组
+2. 插值查找类似于二分查找，不同的事插值查找每次从自适应mid处开始查找
+3. 将折半查找中的求mid索引的公式 ，low表示左边索引，high表示右边索引
    1. **mid = low+((key - arr[low])/(arr[high] - arr[low]))*(high - low)**
    2. 其他与二分查找一样
+## 斐波那契查找(黄金分割点查找)
+> 原理与前两种类似，仅仅改变了mid的位置， mid = low + F(k-1)-1 [F代表斐波那契数列]
+>
+> F[k] = F[k-1] + F[k-2] , 数组长度可能需要扩容

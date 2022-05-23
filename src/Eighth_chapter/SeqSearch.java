@@ -1,4 +1,4 @@
-package Tenth_chapter;
+package Eighth_chapter;
 
 /**
  * 线性查找算法
