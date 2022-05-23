@@ -20,4 +20,9 @@
    1. 找到目标值
    2. 递归完整个数组(left > right)，找不到目标值，返回-1
 ### 非递归方法
-1. 
+- 详见src/Tenth_chapter/BinarySearch.java 中的 binarySearchNoRecurisve 方法
+## 插值查找
+1. 插值查找类似于二分查找，不同的事插值查找每次从自适应mid处开始查找
+2. 将折半查找中的求mid索引的公式 ，low表示左边索引，high表示右边索引
+   1. **mid = low+((key - arr[low])/(arr[high] - arr[low]))*(high - low)**
+   2. 其他与二分查找一样
