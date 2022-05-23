@@ -17,6 +17,7 @@ public class BinarySearch {
         System.out.println(binarySearch(arr, 8));
         List<Integer> list = binarySearchAll(arr, 1000);
         System.out.println(list);
+        System.out.println(binarySearchNoRecursive(arr, 1234));
     }
 
     /**
@@ -58,8 +59,8 @@ public class BinarySearch {
     /**
      * 重载查找所有值
      *
-     * @Param:
-     * @Return:
+     * @Param: int[] arr 升序数组, int findVal 目标值
+     * @Return: 所有的目标值的下标的集合
      */
     public static List<Integer> binarySearchAll(int[] arr, int findVal) {
         return binarySearchAll(arr, 0, arr.length - 1, findVal);
@@ -103,5 +104,35 @@ public class BinarySearch {
             }
             return resIndexlist;
         }
+    }
+
+    /**
+     * 非递归实现二分查找
+     * 升序
+     *
+     * @Param: int[] arr 升序数组, int findValue 目标值
+     * @Return: 返回目标值的下标，找不到返回-1
+     */
+    public static int binarySearchNoRecursive(int[] arr, int findValue) {
+        int left = 0;
+        int right = arr.length - 1;
+        int mid;
+        if (left > right || arr.length == 0 || arr == null) {
+//            找不到
+            return -1;
+        }
+        while (left <= right) {
+            mid = (left + right) / 2;
+            if (findValue == arr[mid]) {
+                return mid;
+            } else if (findValue > arr[mid]) {
+//                向右查找
+                left = mid + 1;
+            } else if (findValue < arr[mid]) {
+//                向左查找
+                right = mid - 1;
+            }
+        }
+        return -1;
     }
 }
