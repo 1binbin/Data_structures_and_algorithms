@@ -10,9 +10,19 @@ import java.util.Arrays;
  */
 public class RadixSort {
     public static void main(String[] args) {
-        int[] arr = {53, 3, 542, 748, 14, 214};
+        int n = 20000000;
+        int[] arr = new int[n];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (Math.random() * 10000);
+        }
+        long start = System.currentTimeMillis();
+        System.out.println("排序前");
+//        System.out.println(Arrays.toString(arr));
         radixSort(arr);
-        System.out.println(Arrays.toString(arr));
+        System.out.println("排序后");
+//        System.out.println(Arrays.toString(arr));
+        long end = System.currentTimeMillis();
+        System.out.println("执行时间为 " + (end - start) + " ms");
     }
 
     /**
