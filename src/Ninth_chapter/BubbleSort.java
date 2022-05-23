@@ -8,50 +8,17 @@ import java.util.Arrays;
  */
 public class BubbleSort {
     public static void main(String[] args) {
-        int n = 2000;
+        int n = 100000;
         int[] arr = new int[n];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (int) (Math.random() * 1000);
         }
-        /*
-//        冒泡排序的演变过程
-//        第一趟排序，就是将最大的数排在最后
-//        临时变量
-        System.out.println("演示冒泡排序演变过程");
-        int temp;
-        for (int i = 0; i < arr.length - 1; i++) {
-//            如果前面的数比后面的数大就交换
-            if (arr[i] > arr[i + 1]) {
-                temp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
-            }
-        }
-        System.out.println("第一趟排序后的数组");
-        System.out.println(Arrays.toString(arr));
-
-//        第二趟排序，将第二大的数排在倒数第二位
-        for (int i = 0; i < arr.length - 1 - 1; i++) {
-//            如果前面的数比后面的数大就交换
-            if (arr[i] > arr[i + 1]) {
-                temp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
-            }
-        }
-        System.out.println("第二趟排序后的数组");
-        System.out.println(Arrays.toString(arr));
-        System.out.println("以此类推·······");
-        System.out.println();
-        System.out.println("经过冒泡排序后······");
-        System.out.println(Arrays.toString(arr));
-         */
         long start = System.currentTimeMillis();
         System.out.println("排序前");
-        System.out.println(Arrays.toString(arr));
+//        System.out.println(Arrays.toString(arr));
         bubbleSort(arr);
         System.out.println("排序后");
-        System.out.println(Arrays.toString(arr));
+//        System.out.println(Arrays.toString(arr));
         long end = System.currentTimeMillis();
         System.out.println("执行时间为 " + (end - start) + " ms");
     }
