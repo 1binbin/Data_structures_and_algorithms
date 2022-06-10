@@ -1,24 +1,20 @@
 package Ninth_chapter;
 
+import java.util.Arrays;
+
 /**
  * @Author hongxiaobin
  * @Time 2022/5/22-11:03
  */
 public class QuickSort {
     public static void main(String[] args) {
-        int n = 8000000;
-        int[] arr = new int[n];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int) (Math.random() * 1000);
-        }
-        long start = System.currentTimeMillis();
+        int[] arr = {28, 7, 39, 10, 65, 14, 61, 17, 50, 21};
+//        int[] arr = {25,84,21,47,15,27,68,35,20};
         quickSort(arr);
-        long end = System.currentTimeMillis();
-        System.out.println("执行时间为 " + (end - start) + " ms");
     }
 
     public static void quickSort(int[] arr) {
-        quickSort(arr, 0, arr.length - 1);
+        quickSort1(arr, 0, arr.length - 1);
     }
 
     /**
@@ -105,7 +101,7 @@ public class QuickSort {
                 arr[j] = arr[i];
                 arr[i] = t;
             }
-
+            System.out.println(Arrays.toString(arr));
         }
         //最后将基准为与i和j相等位置的数字交换
         arr[low] = arr[i];
