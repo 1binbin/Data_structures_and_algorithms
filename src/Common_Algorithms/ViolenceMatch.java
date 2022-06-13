@@ -1,4 +1,4 @@
-package Tenth_chapter;
+package Common_Algorithms;
 
 /**
  * 暴力匹配算法

@@ -1,4 +1,4 @@
-package Tenth_chapter;
+package Common_Algorithms;
 
 /**
  * 分治算法--汉若塔问题

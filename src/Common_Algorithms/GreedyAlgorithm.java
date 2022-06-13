@@ -1,4 +1,4 @@
-package Tenth_chapter;
+package Common_Algorithms;
 
 import java.util.ArrayList;
 import java.util.HashMap;

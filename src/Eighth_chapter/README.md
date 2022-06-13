@@ -20,7 +20,7 @@
    1. 找到目标值
    2. 递归完整个数组(left > right)，找不到目标值，返回-1
 ### 非递归方法
-- 详见src/Tenth_chapter/BinarySearch.java 中的 binarySearchNoRecurisve 方法
+- 详见src/Common_Algorithms/BinarySearch.java 中的 binarySearchNoRecurisve 方法
 ## 插值查找
 1. 适用于数字分布均匀的数组
 2. 插值查找类似于二分查找，不同的事插值查找每次从自适应mid处开始查找

@@ -1,9 +1,9 @@
-package Tenth_chapter;
+package Common_Algorithms;
 
 import java.util.Arrays;
 
 /**
- * Prim算法
+ * Prim算法-最小生成树（修路问题）
  *
  * @Author hongxiaobin
  * @Time 2022/6/10-22:20

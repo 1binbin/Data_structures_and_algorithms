@@ -1,4 +1,4 @@
-package Tenth_chapter;
+package Common_Algorithms;
 
 /**
  * 动态规划--背包问题
