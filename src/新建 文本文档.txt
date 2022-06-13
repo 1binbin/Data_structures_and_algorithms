@@ -1,4 +1,4 @@
-import org.w3c.dom.com.other.Node;
+import org.w3c.dom.Node;
 
 public class SinglytestT {
     public static void main(String[] args) {
@@ -18,11 +18,11 @@ public class SinglytestT {
 }
 
 class SinglyT {
-    private com.other.Node1 head;
+    private Node1 head;
     private int N;
 
-    public com.other.Singly() {
-        this.head = new com.other.Node1();
+    public Singly() {
+        this.head = new Node1();
         this.N = 0;
 
     }
@@ -49,7 +49,7 @@ class SinglyT {
             throw new NullPointerException();
         }
         通过循环，从头结点开始往后找，依次找1次，可以找到对应的元素
-        com.other.Node1 n = head;
+        Node1 n = head;
         if (n == null) {
             throw new NullPointerException();
         }
@@ -60,7 +60,7 @@ class SinglyT {
     }
 
     public boolean listEmpty() {
-        com.other.Node1 n = head;
+        Node1 n = head;
         if (n.next == null) { 通过判断头结点的下一结点地址是否为空，即可判断单链表是否为空
             return true;
         }
@@ -73,7 +73,7 @@ class SinglyT {
         if (t == null) {
             throw new NullPointerException();
         }
-        com.other.Node1 n = head;
+        Node1 n = head;
         while (n.next != null) {
             n = n.next;
         }
@@ -89,8 +89,8 @@ class SinglyT {
         if (i  0  i  N) {
             throw new NullPointerException();
         }
-        com.other.Node1 pre = head;
-        com.other.Node1 newNode = new com.other.Node1(t, null);
+        Node1 pre = head;
+        Node1 newNode = new Node1(t, null);
         if (i == 0) {
             newNode.next = head;
             head = newNode;
@@ -107,14 +107,14 @@ class SinglyT {
         删除指定位置i处的元素，并返回被删除的元素
     public Object remove(int i) {
         找到i位置的前一个节点
-        com.other.Node1 pre = head;
+        Node1 pre = head;
         for (int index = 0; index = i - 1; i++) {
             pre = pre.next;
         }
         要找到i位置的结点
-        com.other.Node1 curr = pre.next;
+        Node1 curr = pre.next;
         找到i位置的下一个结点
-        com.other.Node1 nextNode = curr.next;
+        Node1 nextNode = curr.next;
         前一个结点指向下一个结点
         pre.next = nextNode;
         元素个数-1
@@ -125,7 +125,7 @@ class SinglyT {
         查找元素t在链表中第一次出现的位置
     public int indexof(T t) {
         从头结点开始，依次找到每一个结点，取出item，和t比较，如果相同，就找到了
-        com.other.Node1 n = head;
+        Node1 n = head;
         for (int i = 0; n.next != null; i++) {
             n = n.next;
             if (n.item.equals(t)) {
@@ -138,20 +138,20 @@ class SinglyT {
 
     @Override
     public String toString() {
-        return com.other.Node1 + last().item + , + last().next;
+        return Node1 + last().item + , + last().next;
     }
 
-    public com.other.Node1 last() {
-        com.other.Node1 temp = new com.other.Node1(this.get(N-1),null);
-        com.other.Node1 temp = this.head;
+    public Node1 last() {
+        Node1 temp = new Node1(this.get(N-1),null);
+        Node1 temp = this.head;
         while (temp.next != null) {
             temp = temp.next;
         }
         return temp;
     }
 
-    public com.other.Node1 prev(com.other.Node1 p) {
-        com.other.Node1 temp = this.head;
+    public Node1 prev(Node1 p) {
+        Node1 temp = this.head;
         if (p.next == null) {
             return null;
         }
@@ -166,8 +166,8 @@ class SinglyT {
     }
 }
 
-       com.other.Node1 n = head;
-        com.other.Node1 q = null;
+       Node1 n = head;
+        Node1 q = null;
         if(p==nullp.next==null){
             return null;
         }
@@ -176,7 +176,7 @@ class SinglyT {
       }
       创建要给一个栈，将各个节点压入栈
         StackNode1 stack = new Stack();
-        com.other.Node1 cur = head.next;
+        Node1 cur = head.next;
         将链表的左右结点压入栈
         while(cur!=null){
             stack.push(cur);
