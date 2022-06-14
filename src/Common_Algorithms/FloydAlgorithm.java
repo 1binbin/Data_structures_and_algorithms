@@ -32,7 +32,7 @@ public class FloydAlgorithm {
  */
 class FGraph {
     //    存放顶点的数组
-    char[] vertex;
+    private char[] vertex;
     //    保存从各个顶点出发到其他顶点的最短距离，也是最后结果的数组
     private int[][] dis;
     //    保存到达目标结点的前驱顶点
@@ -73,6 +73,27 @@ class FGraph {
             }
             System.out.println();
             System.out.println();
+        }
+    }
+
+    /**
+     * 弗洛伊德算法实现
+     *
+     * @Param:
+     * @Return:
+     */
+    public void floyd() {
+//        变量保存距离
+        int len = 0;
+//        遍历中间顶点
+        for (int k = 0; k < dis.length; k++) {
+//            遍历出发顶点
+            for (int i = 0; i < dis.length; i++) {
+//                遍历到达顶点
+                for (int j = 0; j < dis.length; j++) {
+                    len = dis[i][k] + dis[k][j];
+                }
+            }
         }
     }
 }
