@@ -21,6 +21,50 @@ public class DijkstraAlgorithm {
         Graph graph = new Graph(vertex, matrix);
         System.out.println("显示图的信息");
         graph.showGraph();
+        graph.dijkstra(6);
+    }
+}
+
+/**
+ * 创建图
+ *
+ * @Author: hongxiaobin
+ * @Date: 2022/6/14 10:51
+ */
+class Graph {
+    //    顶点数组
+    private char[] vertex;
+    //    邻接矩阵
+    private int[][] matrix;
+
+    public Graph(char[] vertex, int[][] matrix) {
+        this.vertex = vertex;
+        this.matrix = matrix;
+    }
+
+    /**
+     * 显示图
+     *
+     * @Param:
+     * @Return:
+     */
+    public void showGraph() {
+        for (int[] ints : matrix) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                System.out.printf("%12d", ints[j]);
+            }
+            System.out.println();
+        }
+    }
+
+    /**
+     * 迪杰斯特拉算法实现
+     *
+     * @Param: index 出发顶点的下标
+     * @Return:
+     */
+    public void dijkstra(int index) {
+        VisitedVertex vv = new VisitedVertex(matrix[0].length, index);
     }
 }
 
@@ -63,37 +107,35 @@ class VisitedVertex {
     public boolean in(int index) {
         return this.already_arr[index] == 1;
     }
-}
 
-/**
- * 创建图
- *
- * @Author: hongxiaobin
- * @Date: 2022/6/14 10:51
- */
-class Graph {
-    //    顶点数组
-    private char[] vertex;
-    //    邻接矩阵
-    private int[][] matrix;
-
-    public Graph(char[] vertex, int[][] matrix) {
-        this.vertex = vertex;
-        this.matrix = matrix;
+    /**
+     * 更新出发顶点到index对应的顶点的距离
+     *
+     * @Param: index 顶点的下标，len 出发顶点到index对应的顶点的距离
+     * @Return: void
+     */
+    public void updateDis(int index, int len) {
+        this.dis[index] = len;
     }
 
     /**
-     * 显示图
+     * 更新pre这个顶点的前一个顶点的下标为index
      *
-     * @Param:
+     * @Param: pre 顶点的下标，index 前一个顶点的下标
      * @Return:
      */
-    public void showGraph() {
-        for (int[] ints : matrix) {
-            for (int j = 0; j < matrix[0].length; j++) {
-                System.out.printf("%12d", ints[j]);
-            }
-            System.out.println();
-        }
+    public void updatePre(int pre, int index) {
+        this.pre_visited[index] = pre;
+    }
+
+    /**
+     * 返回出发顶点到index对应的顶点的距离
+     *
+     * @Param: index 顶点的下标
+     * @Return: 出发顶点到index对应的顶点的距离
+     */
+    public int getDis(int index) {
+        return dis[index];
     }
 }
+
