@@ -22,6 +22,8 @@ public class DijkstraAlgorithm {
         System.out.println("显示图的信息");
         graph.showGraph();
         graph.dijkstra(6);
+        System.out.println("显示最短路径");
+        graph.showResult(vertex);
     }
 }
 
@@ -67,7 +69,24 @@ class Graph {
      */
     public void dijkstra(int index) {
         vv = new VisitedVertex(matrix[0].length, index);
+//        更新index顶点到周围顶点的距离和前驱顶点
+        update(index);
+        for (int j = 0; j < vertex.length; j++) {
+//            选择并返回新的访问顶点
+            index = vv.updateArr();
+//            更新index顶点到周围顶点的距离和前驱顶点
+            update(index);
+        }
+    }
 
+    /**
+     * 显示结果
+     *
+     * @Param:
+     * @Return:
+     */
+    public void showResult(char[] vertex) {
+        vv.show(vertex);
     }
 
     /**
@@ -77,7 +96,7 @@ class Graph {
      * @Return:
      */
     private void update(int index) {
-        int len = 0;
+        int len;
 //        根据遍历邻接矩阵的matrix[index]行
         for (int j = 0; j < matrix[index].length; j++) {
 //            已有的距离加上当前顶点到邻接矩阵的第j个顶点的距离
@@ -119,6 +138,8 @@ class VisitedVertex {
         this.dis = new int[lenght];
 //        初始化dis数组
         Arrays.fill(this.dis, 65535);
+//        设置出发顶点被访问过
+        this.already_arr[index] = 1;
 //        设置到本身的距离为0
         this.dis[index] = 0;
     }
@@ -161,6 +182,65 @@ class VisitedVertex {
      */
     public int getDis(int index) {
         return dis[index];
+    }
+
+    /**
+     * 继续选择并返回新访问顶点，也就是将下一个顶点作为新的顶点继续选择
+     *
+     * @Param:
+     * @Return:
+     */
+    public int updateArr() {
+        int min = 65535;
+        int index = 0;
+        for (int i = 0; i < already_arr.length; i++) {
+//            选择当前距离最小的顶点作为新的顶点
+            if (already_arr[i] == 0 && dis[i] < min) {
+                min = dis[i];
+                index = i;
+            }
+        }
+//        将index对应的顶点设置为已访问
+        already_arr[index] = 1;
+        return index;
+    }
+
+    /**
+     * 显示最短路径
+     *
+     * @Param:
+     * @Return:
+     */
+    public void show(char[] vertex) {
+//        将三个数组的值输出
+        System.out.println("==========================================================");
+//        输出already_arr
+        System.out.println("访问过的顶点");
+        for (int i : already_arr) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+//        输出pre_visited
+        System.out.println("前驱顶点");
+        for (int i : pre_visited) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+//        输出dis
+        System.out.println("距离");
+        for (int i : dis) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+        int count = 0;
+        for (int i : dis) {
+            if (i != 65535) {
+                System.out.print(vertex[count] + "(距离为" + i + ")\t");
+            } else {
+                System.out.println("N");
+            }
+            count++;
+        }
     }
 }
 
