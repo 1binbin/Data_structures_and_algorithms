@@ -36,6 +36,8 @@ class Graph {
     private char[] vertex;
     //    邻接矩阵
     private int[][] matrix;
+    //    已经访问的顶点的集合
+    private VisitedVertex vv;
 
     public Graph(char[] vertex, int[][] matrix) {
         this.vertex = vertex;
@@ -64,7 +66,30 @@ class Graph {
      * @Return:
      */
     public void dijkstra(int index) {
-        VisitedVertex vv = new VisitedVertex(matrix[0].length, index);
+        vv = new VisitedVertex(matrix[0].length, index);
+
+    }
+
+    /**
+     * 更新index下标的顶点到周围顶点的距离和周围顶点的前驱结点
+     *
+     * @Param: index 当前顶点的下标
+     * @Return:
+     */
+    private void update(int index) {
+        int len = 0;
+//        根据遍历邻接矩阵的matrix[index]行
+        for (int j = 0; j < matrix[index].length; j++) {
+//            已有的距离加上当前顶点到邻接矩阵的第j个顶点的距离
+            len = vv.getDis(index) + matrix[index][j];
+//            如果j没有背范文国并且len小于j的距离，就更新j的距离和前驱结点
+            if (!vv.in(j) && len < vv.getDis(j)) {
+//                更新j顶点前驱结点为index顶点
+                vv.updatePre(j, index);
+//                更新出发点到j顶点的距离
+                vv.updateDis(j, len);
+            }
+        }
     }
 }
 
