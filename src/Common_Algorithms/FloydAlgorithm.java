@@ -10,7 +10,7 @@ public class FloydAlgorithm {
     public static void main(String[] args) {
         char[] vertex = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
         int[][] matrix = new int[vertex.length][vertex.length];
-        final int N = Integer.MAX_VALUE;
+        final int N = 25535;
         matrix[0] = new int[]{0, 5, 7, N, N, N, 2};
         matrix[1] = new int[]{5, 0, N, 9, N, N, 3};
         matrix[2] = new int[]{7, N, 0, N, 8, N, N};
@@ -20,6 +20,7 @@ public class FloydAlgorithm {
         matrix[6] = new int[]{2, 3, N, N, 4, 6, 0};
 //        创建图对象
         FGraph graph = new FGraph(vertex.length, matrix, vertex);
+        graph.floyd();
         graph.show(vertex);
     }
 }
@@ -84,14 +85,21 @@ class FGraph {
      */
     public void floyd() {
 //        变量保存距离
-        int len = 0;
+        int len;
 //        遍历中间顶点
         for (int k = 0; k < dis.length; k++) {
 //            遍历出发顶点
             for (int i = 0; i < dis.length; i++) {
 //                遍历到达顶点
                 for (int j = 0; j < dis.length; j++) {
+//                    从i顶点出发经过k顶点到j顶点的距离
                     len = dis[i][k] + dis[k][j];
+//                    如果len更小则更新
+                    if (len < dis[i][j]) {
+                        dis[i][j] = len;
+//                        更新前驱顶点
+                        pre[i][j] = pre[k][j];
+                    }
                 }
             }
         }
