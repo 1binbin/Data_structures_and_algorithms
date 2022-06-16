@@ -66,4 +66,13 @@ public class MyHashSet<E> {
         this.count++;
         return this.table[this.hash(e)].insert(0, e);
     }
+
+    public int remove(E key) {
+        int n = this.table[this.hash(key)].remove(key);
+        if (n != -1) {
+            this.count--;
+        }
+        return n;
+    }
+
 }
