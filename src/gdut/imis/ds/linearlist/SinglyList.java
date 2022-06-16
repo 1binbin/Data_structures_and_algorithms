@@ -104,11 +104,19 @@ public class SinglyList<E> implements LinearList<E> {
 
     @Override
     public int search(E key) {
-        // TODO
+        Node<E> p = head.next;
+        int i = 0;
+        while (p != null) {
+            if (key.equals(p.data)) {
+                return i;
+            } else {
+                p = p.next;
+                i++;
+            }
+        }
         return -1;
 
     }
-
     @Override
     public boolean contains(E key) {
         int i = search(key);
