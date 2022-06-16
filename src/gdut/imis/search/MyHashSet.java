@@ -36,6 +36,13 @@ public class MyHashSet<E> {
         }
     }
 
+    public static void main(String[] args) {
+        Integer[] values = new Integer[]{3, 78, 1, 24, 5, 90, 10, 77, 86};
+        MyHashSet<Integer> hashSet = new MyHashSet<>(values);
+        int n = hashSet.search(10);
+        System.out.println(n);
+    }
+
     private int hash(E x) {
         int key = Math.abs(x.hashCode());
         return key % this.table.length;
