@@ -217,7 +217,8 @@ public class Graph {
         }
     }
 
-    /** 广度遍历BFS 不唯一
+    /**
+     * 广度遍历BFS 不唯一
      * 一层一层遍历
      * 步骤
      * 1.访问初始结点v并标记结点v已访问
@@ -228,17 +229,19 @@ public class Graph {
      * 5.1若结点w尚未访问，则访问结点w并标记为已访问
      * 5.2结点w入队列
      * 5.3查找结点u的继w邻接点后的下一个邻接点w，找到步骤5
+     *
      * @Param:
      * @Return:
      */
-    public void bfs(){
+    public void bfs() {
         isVisted = new boolean[n];
         for (int i = 0; i < getNumOfVertex(); i++) {
-            if (!isVisted[i]){
-                bfs(isVisted,i);
+            if (!isVisted[i]) {
+                bfs(isVisted, i);
             }
         }
     }
+
     /**
      * 对一个结点广度优先遍历
      *
